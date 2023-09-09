@@ -1,9 +1,17 @@
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.environ.get('XRapidAPIKey')
+api_host = os.environ.get('XRapidAPIHost')
+
 
 headers = {
     'Accept': 'application/json',
-    'X-RapidAPI-Key': '7108201eafmshb996c2557120670p1c1f3bjsnae663a89ba7f',
-    'X-RapidAPI-Host': 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com'
+    'X-RapidAPI-Key': api_key,
+    'X-RapidAPI-Host': api_host
 }
 
 response = requests.get("https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random", headers=headers)
